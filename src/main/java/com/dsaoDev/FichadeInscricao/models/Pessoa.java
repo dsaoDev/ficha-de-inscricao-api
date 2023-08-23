@@ -24,7 +24,7 @@ public class Pessoa {
     private Long nome;
 
     @Column(length = 20, nullable = false)
-    private String sobrenome;
+    private String sobreNome;
 
     @Column(length = 20, nullable = false, unique = true)
     private String email;
