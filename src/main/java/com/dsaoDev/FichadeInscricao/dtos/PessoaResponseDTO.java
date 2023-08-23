@@ -2,6 +2,7 @@ package com.dsaoDev.FichadeInscricao.dtos;
 
 import com.dsaoDev.FichadeInscricao.models.Endereco;
 import com.dsaoDev.FichadeInscricao.models.enums.Genero;
+import com.dsaoDev.FichadeInscricao.models.enums.TipoPessoa;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.time.LocalDate;
@@ -14,5 +15,6 @@ public record PessoaResponseDTO(String nome,
                                 @JsonFormat(pattern = "dd/MM/yyyy")
                                 LocalDate dataNascimento,
                                 String telefone,
-                                Genero genero) {
+                                Genero genero,
+                                TipoPessoa tipoPessoa) {
 }

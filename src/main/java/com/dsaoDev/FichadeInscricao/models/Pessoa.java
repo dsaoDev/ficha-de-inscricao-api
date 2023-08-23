@@ -1,5 +1,6 @@
 package com.dsaoDev.FichadeInscricao.models;
 
+import com.dsaoDev.FichadeInscricao.dtos.PessoaRequestDTO;
 import com.dsaoDev.FichadeInscricao.models.enums.Genero;
 import com.dsaoDev.FichadeInscricao.models.enums.TipoPessoa;
 import jakarta.persistence.*;
@@ -21,12 +22,12 @@ public class Pessoa {
     private Long id;
 
     @Column(length = 20, nullable = false)
-    private Long nome;
+    private String nome;
 
     @Column(length = 20, nullable = false)
     private String sobreNome;
 
-    @Column(length = 20, nullable = false, unique = true)
+    @Column(length = 30, nullable = false, unique = true)
     private String email;
 
     @Column(length = 14, nullable = false, unique = true)
@@ -47,4 +48,15 @@ public class Pessoa {
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private TipoPessoa tipoPessoa;
+
+    public Pessoa(PessoaRequestDTO pessoaRequestDTO) {
+        this.nome = pessoaRequestDTO.nome();
+        this.sobreNome = pessoaRequestDTO.sobreNome();
+        this.email = pessoaRequestDTO.email();
+        this.cpf = pessoaRequestDTO.cpf();
+        this.dataNascimento = pessoaRequestDTO.dataNascimento();
+        this.telefone = pessoaRequestDTO.telefone();
+        this.genero = pessoaRequestDTO.genero();
+        this.tipoPessoa = pessoaRequestDTO.tipoPessoa();
+    }
 }
